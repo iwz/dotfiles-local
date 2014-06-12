@@ -1,0 +1,56 @@
+if ! exists('g:vimified_packages')
+  let g:vimified_packages = ['general', 'fancy', 'coding', 'indent', 'ruby', 'rails', 'rspec', 'javascript', 'ctags', 'snippets', 'colour']
+endif
+
+if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
+  Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+
+  :hi TabLineFill term=bold cterm=bold ctermbg=237
+endif
+
+if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
+  colorscheme Tomorrow-Night-Eighties
+endif
+
+Plugin 'scrooloose/nerdtree'
+  let NERDTreeHijackNetrw = 0
+  let g:NERDTreeWinSize = 25
+  let g:NERDTreeChDirMode = 2
+  let NERDTreeShowHidden = 1
+  map \ :NERDTreeToggle<CR>
+  map \| :NERDTreeFind<CR>
+
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-commentary'
+  xmap <leader>/ <Plug>Commentary
+  nmap <leader>/ <Plug>CommentaryLine
+Plugin 'epmatsw/ag.vim'
+  function! AgGrep()
+    let command = 'ag -i '.expand('<cword>')
+    cexpr system(command)
+    cw
+  endfunction
+
+  function! AgVisual()
+    normal gv"xy
+    let command = 'ag -i '.@x
+    cexpr system(command)
+    cw
+  endfunction
+
+map <leader>a :call AgGrep()<CR>
+vmap <leader>a :call AgVisual()<CR>
+
+" switch syntax highlighting on, when the terminal has colors
+if &t_Co > 2 || has('gui_running')
+  set hlsearch
+endif
+
+" clear the search buffer when hitting space
+:nnoremap <ESC><ESC> :nohlsearch<cr>
+
+" copy current file path to system pasteboard
+map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+
+set guifont=Menlo\ Regular:h18
