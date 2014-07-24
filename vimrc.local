@@ -37,6 +37,7 @@ Plugin 'epmatsw/ag.vim'
     cexpr system(command)
     cw
   endfunction
+Plugin 'vim-scripts/regreplop.vim'
 
 map <leader>a :call AgGrep()<CR>
 vmap <leader>a :call AgVisual()<CR>
@@ -54,3 +55,5 @@ map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
 set guifont=Menlo\ Regular:h18
+set colorcolumn=80
+set nowrap
