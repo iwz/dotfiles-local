@@ -37,7 +37,14 @@ Plugin 'epmatsw/ag.vim'
     cexpr system(command)
     cw
   endfunction
-Plugin 'vim-scripts/regreplop.vim'
+" Plugin 'vim-scripts/regreplop.vim'
+
+" tmux stuff
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jgdavey/tslime.vim'
+" let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec}\n")'
+let g:rspec_runner = "os_x_iterm"
+let g:rspec_command = 'bundle exec rspec {spec}'
 
 map <leader>a :call AgGrep()<CR>
 vmap <leader>a :call AgVisual()<CR>
@@ -57,3 +64,12 @@ map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%"
 set guifont=Menlo\ Regular:h18
 set colorcolumn=80
 set nowrap
+
+" autosave
+autocmd BufLeave,FocusLost * silent! wall
+
+au BufNewFile,BufRead *.ejs set filetype=html
+
+" open files with line number
+Plugin 'mgamba/edit-plus'
+
