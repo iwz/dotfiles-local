@@ -73,3 +73,5 @@ au BufNewFile,BufRead *.ejs set filetype=html
 " open files with line number
 Plugin 'mgamba/edit-plus'
 
+
+map <D-e> :CtrlPBuffer<CR>
