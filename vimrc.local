@@ -4,12 +4,14 @@ endif
 
 if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
   Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+  Plugin 'chriskempson/base16-vim'
 
   :hi TabLineFill term=bold cterm=bold ctermbg=237
 endif
 
 if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
   colorscheme Tomorrow-Night-Eighties
+  " colorscheme base16-eighties
 endif
 
 Plugin 'scrooloose/nerdtree'
@@ -61,7 +63,7 @@ endif
 map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
-set guifont=Menlo\ Regular:h18
+set guifont=Menlo\ Regular:h14
 set colorcolumn=80
 set nowrap
 
@@ -72,6 +74,5 @@ au BufNewFile,BufRead *.ejs set filetype=html
 
 " open files with line number
 Plugin 'mgamba/edit-plus'
-
 
 map <D-e> :CtrlPBuffer<CR>
