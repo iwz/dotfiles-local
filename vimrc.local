@@ -70,7 +70,10 @@ set nowrap
 " autosave
 autocmd BufLeave,FocusLost * silent! wall
 
-au BufNewFile,BufRead *.ejs set filetype=html
+" remove unwanted whitespaces writing to a file
+autocmd BufLeave,FocusLost,BufWritePre * silent! :EraseBadWhitespace
+
+autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 " open files with line number
 Plugin 'mgamba/edit-plus'
