@@ -1,2 +1,3 @@
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'tpope/vim-abolish'
+Plugin 'vim-scripts/regreplop.vim'
