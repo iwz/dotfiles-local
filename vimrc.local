@@ -82,7 +82,3 @@ map <D-e> :CtrlPBuffer<CR>
 
 command! Vimrc e ~/.vimrc
 command! Vimrclocal e ~/.vimrc.local
-
-nmap <C-I> <Plug>ReplaceMotion
-nmap <C-I><C-I> <Plug>ReplaceLine
-vmap <C-I> <Plug>ReplaceVisual
