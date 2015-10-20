@@ -1,2 +1,14 @@
-Plugin 'bitc/vim-bad-whitespace'
-Plugin 'tpope/vim-abolish'
+Plug 'bitc/vim-bad-whitespace'
+Plug 'tpope/vim-abolish'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/ReplaceWithSameIndentRegister'
+Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'epmatsw/ag.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jgdavey/tslime.vim'
+" open files with line number
+Plug 'mgamba/edit-plus'

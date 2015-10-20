@@ -2,51 +2,43 @@ if ! exists('g:vimified_packages')
   let g:vimified_packages = ['general', 'fancy', 'coding', 'indent', 'ruby', 'rails', 'rspec', 'javascript', 'ctags', 'snippets', 'colour']
 endif
 
-if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
-  Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-  Plugin 'chriskempson/base16-vim'
+:hi TabLineFill term=bold cterm=bold ctermbg=237
 
-  :hi TabLineFill term=bold cterm=bold ctermbg=237
-endif
-
-if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
-  colorscheme Tomorrow-Night-Eighties
+"if count(g:vimified_packages, 'colour') || count(g:vimified_packages, 'color')
+colorscheme Tomorrow-Night-Eighties
   " colorscheme base16-eighties
-endif
+"endif
 
-Plugin 'scrooloose/nerdtree'
-  let NERDTreeHijackNetrw = 0
-  let g:NERDTreeWinSize = 25
-  let g:NERDTreeChDirMode = 2
-  let NERDTreeShowHidden = 1
-  map \ :NERDTreeToggle<CR>
-  map \| :NERDTreeFind<CR>
+" NerdTree
+let NERDTreeHijackNetrw = 0
+let g:NERDTreeWinSize = 25
+let g:NERDTreeChDirMode = 2
+let NERDTreeShowHidden = 1
+map \ :NERDTreeToggle<CR>
+map \| :NERDTreeFind<CR>
 
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-commentary'
-  xmap <leader>/ <Plug>Commentary
-  nmap <leader>/ <Plug>CommentaryLine
-Plugin 'epmatsw/ag.vim'
-  function! AgGrep()
-    let command = 'ag -i '.expand('<cword>')
-    cexpr system(command)
-    cw
-  endfunction
+" vim-commentary
+xmap <leader>/ <Plug>Commentary
+nmap <leader>/ <Plug>CommentaryLine
 
-  function! AgVisual()
-    normal gv"xy
-    let command = 'ag -i '.@x
-    cexpr system(command)
-    cw
-  endfunction
-" Plugin 'vim-scripts/regreplop.vim'
+" ag
+function! AgGrep()
+  let command = 'ag -i '.expand('<cword>')
+  cexpr system(command)
+  cw
+endfunction
+
+function! AgVisual()
+  normal gv"xy
+  let command = 'ag -i '.@x
+  cexpr system(command)
+  cw
+endfunction
 
 " tmux stuff
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jgdavey/tslime.vim'
-" let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec}\n")'
-let g:rspec_runner = "os_x_iterm"
-let g:rspec_command = 'bundle exec rspec {spec}'
+let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec}\n")'
+" let g:rspec_runner = "os_x_iterm"
+" let g:rspec_command = 'bundle exec rspec {spec}'
 
 map <leader>a :call AgGrep()<CR>
 vmap <leader>a :call AgVisual()<CR>
@@ -74,9 +66,6 @@ autocmd BufLeave,FocusLost * silent! wall
 autocmd BufLeave,FocusLost,BufWritePre * silent! :EraseBadWhitespace
 
 autocmd BufNewFile,BufRead *.ejs set filetype=html
-
-" open files with line number
-Plugin 'mgamba/edit-plus'
 
 map <D-e> :CtrlPBuffer<CR>
 
