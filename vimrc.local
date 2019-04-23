@@ -68,6 +68,8 @@ autocmd BufLeave,FocusLost,BufWritePre * silent! :EraseBadWhitespace
 autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 map <D-e> :CtrlPBuffer<CR>
+map <C-p> :FZF<CR>
 
 command! Vimrc e ~/.vimrc
 command! Vimrclocal e ~/.vimrc.local
+
