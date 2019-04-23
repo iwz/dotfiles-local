@@ -1,7 +1,7 @@
 # autoload -U promptinit && promptinit
 # prompt pure
 
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
