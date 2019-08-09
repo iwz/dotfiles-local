@@ -1,0 +1,64 @@
+fancy_echo "In local laptop file"
+
+brew bundle --file=- <<EOF
+tap "thoughtbot/formulae"
+tap "caskroom/drivers"
+brew "hub"
+brew "macvim"
+brew "rcm"
+brew "tig"
+cask "1password"
+cask "atom"
+cask "caffeine"
+cask "chromedriver"
+cask "day-o"
+cask "dropbox"
+cask "firefox"
+cask "github"
+cask "iterm2"
+cask "ngrok"
+cask "shiftit"
+cask "sonos"
+cask "sublime-text"
+cask "visual-studio-code"
+EOF
+
+brew link macvim
+
+git clone git://github.com/thoughtbot/dotfiles.git ~/dotfiles
+git clone git@github.com:iwz/dotfiles-local.git ~/dotfiles-local
+env RCRC=$HOME/dotfiles/rcrc rcup
+rcup
+
+# Show battery percent
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Reduce initial delay before key repeat
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+# Increase key repeat speed
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Remove the auto-hiding Dock delay
+defaults write com.apple.dock autohide-delay -float 0
+# Remove the animation when hiding/showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+fancy_echo "Restart your computer for these changes to take effect"

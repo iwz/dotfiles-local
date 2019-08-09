@@ -4,3 +4,11 @@
   delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 [diff]
   compactionHeuristic = true
+[tig]
+  status-show-untracked-files = yes
+[rerere]
+  enabled = true
+[user]
+	name = Ian Zabel
+	initials = iwz
+	email = ian@ezabel.com

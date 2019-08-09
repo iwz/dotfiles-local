@@ -12,4 +12,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jgdavey/tslime.vim'
 " open files with line number
 Plug 'mgamba/edit-plus'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug '/usr/local/opt/fzf'

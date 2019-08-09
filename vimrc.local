@@ -35,6 +35,8 @@ function! AgVisual()
   cw
 endfunction
 
+autocmd FileType go,zsh,bash,sh setlocal listchars=tab:\ \ ,trail:·,extends:> " Highlight problematic whitespace
+
 " tmux stuff
 let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec}\n")'
 " let g:rspec_runner = "os_x_iterm"
@@ -58,6 +60,7 @@ map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%"
 set guifont=Menlo\ Regular:h14
 set colorcolumn=80
 set nowrap
+set exrc
 
 " autosave
 autocmd BufLeave,FocusLost * silent! wall
