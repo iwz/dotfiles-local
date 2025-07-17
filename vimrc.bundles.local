@@ -15,4 +15,7 @@ Plug 'mgamba/edit-plus'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
